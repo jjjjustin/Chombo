@@ -1,2 +1,35 @@
     @import 'bootstrap-sprockets';
     @import 'bootstrap';
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+.jumbotron {
+
+    margin-bottom: 0px;
+    background-image: url(http://i.huffpost.com/gen/2442876/thumbs/o-DIY-HOME-IMPROVEMENT-facebook.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fffbff;
+    height: 800px;
+    margin-top: -75px;
+
+
+}
+
+.outline {
+  -webkit-text-stroke: 1.5px gray;
+}
+
+.sub {
+
+  color: gray;
+}
+
+.navbar-brand {
+  font-style: bold;
+  color: black;
+  margin-top: -5px;
+}
