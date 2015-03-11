@@ -24,12 +24,18 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Browse</a></li>
-        <li class="divider"></li>
-        <li><a href="/users/sign_up">Sign up</a></li>
-        <li class="divider"></li>
-        <li><a href="/users/sign_in">Sign in</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Logged in as #{current_user.first_name.upcase}", user_path(current_user.id) %></li>
+          <li><%= link_to "Log out", destroy_user_session_path(@user), method: :delete %></li>
+          <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Browse</a></li>
+         <% else %>
+          <li class="divider"></li>
+          <li><a href="/users/sign_up">Sign up</a></li>
+          <li class="divider"></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+
         </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
@@ -41,14 +47,16 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Start listing now</a></li>
 
+
+
+
+
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>

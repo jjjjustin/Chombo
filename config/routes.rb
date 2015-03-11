@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   root 'static#welcome'
 
   devise_for :users
+
+  resources :users do
+    resources :tools
+    resources :messages
+  end
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
