@@ -11,7 +11,51 @@
           <li><%= link_to "Profile" %></li>
           <li><%= link_to "Account" %></li>
       </ul>
-    </div>
   </div>
   <hr>
 </nav>
+<div class="row">
+  <div class="col-sm-6 col-md-4 profile" >
+    <div class="thumbnail">
+      <%= image_tag current_user.avatar.url %>
+      <div class="caption">
+        <h2 class="text-center"><%= current_user.first_name %>  <%= current_user.last_name %></h2>
+        <h4 class="text-center"><%= current_user.state %></h4>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">View tools</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">Add tools</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">Edit profile</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md"></div>
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <h1 class="pad">Reservations</h1>
+      <p class="pad">Here's a list of upcoming reservations</p>
+    </div>
+    <div class="thumbnail">
+      <h1 class="pad">Alerts</h1>
+      <p class="pad">And here are some alerts!</p>
+    </div>
+    <div class="thumbnail ">
+      <h1 class="pad">Messages</h1>
+      <p class="pad">Messages from other users</p>
+    </div>
+    <div class="thumbnail">
+      <h1 class="pad">Requests</h1>
+      <p class="pad">And a list of current loan requests to review</p>
+    </div>
+  </div>
+</div>
+
+
+

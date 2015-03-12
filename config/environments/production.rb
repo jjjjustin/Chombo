@@ -1,10 +1,10 @@
 Rails.application.configure do
       config.paperclip_defaults = {
         :storage => 's3',
+        :bucket => 'chombo',
         :s3_credentials => {
-          :bucket => ENV['AWS_BUCKET'],
-          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+          :access_key_id => Figaro.env.aws_key,
+          :secret_access_key => Figaro.env.aws_secret
         }
       }
   # Settings specified here will take precedence over those in config/application.rb.

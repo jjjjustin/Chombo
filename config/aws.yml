@@ -1,11 +1,15 @@
-  development:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
+development:
+  access_key_id:        Figaro.env.aws_key
+  secret_access_key:    Figaro.env.aws_secret
+  config_api_key:       Figaro.env.mandrill_key
 
-  production:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
 
-  test:
-    access_key_id: Figaro.env.aws_key
-    secret_access_key: Figaro.env.aws_secret
+production:
+  access_key_id:        Figaro.env.aws_key
+  secret_access_key:    Figaro.env.aws_secret
+  config_api_key:       Figaro.env.mandrill_key
+
+test:
+  access_key_id:        Figaro.env.aws_key
+  secret_access_key:    Figaro.env.aws_secret
+  config_api_key:       Figaro.env.mandrill_key
