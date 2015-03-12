@@ -1,0 +1,32 @@
+<nav class="navbar transparent navbar">
+  <hr>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav space">
+        <li><%= link_to "Dashboard", users_path(current_user.id) %></li>
+        <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
+        <li><%= link_to "Toolbox", user_tools_path(current_user.id) %></li>
+        <li><%= link_to "Reservations" %></li>
+        <li><%= link_to "Add tools", new_user_tool_path(current_user.id) %></li>
+        <li><%= link_to "Profile" %></li>
+        <li><%= link_to "Account" %></li>
+      </ul>
+    </div>
+  <hr>
+</nav>
+
+<h2>Add a new tool to your toolbox</h2>
+
+<%= simple_form_for ([current_user, Tool.new]) do |f| %>
+  <%= f.error_notification %>
+    <div class="form-inputs">
+        <%= f.input :kind, required: true %>
+        <%= f.input :name, required: true %>
+        <%= f.input :condition, required: true %>
+        <%= f.input :description, required: true %>
+        <%= f.file_field :image %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Add tool"%>
+
+    </div>
+  <% end %>

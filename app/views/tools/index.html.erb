@@ -16,5 +16,12 @@
   <hr>
 </nav>
 
-
-<h1>Tool index</h1>
+<% @tools.each do |tool| %>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <%= image_tag tool.image.url(:medium) %>
+      <h1 class="pad"><%= tool.kind %></h1>
+      <p class="pad"><%= tool.name %></p>
+    </div>
+  </div>
+<% end %>
