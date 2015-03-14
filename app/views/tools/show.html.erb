@@ -3,11 +3,11 @@
 <hr>
   <div class="container-fluid">
       <ul class="nav navbar-nav space">
-          <li><%= link_to "Dashboard" %></li>
+          <li><%= link_to "Dashboard", users_path(current_user.id) %></li>
           <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
           <li><%= link_to "Toolbox", user_tools_path(current_user.id) %></li>
           <li><%= link_to "Reservations" %></li>
-          <li><%= link_to "Add tools", new_user_tool_path(current_user.id)  %></li>
+          <li><%= link_to "Requests" %></li>
           <li><%= link_to "Profile" %></li>
           <li><%= link_to "Account" %></li>
       </ul>
@@ -16,6 +16,13 @@
   <hr>
 </nav>
 
-<h1>Dashboard</h1>
-
-
+<% @tool.each do |tool| %>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <%= image_tag tool.image.url(:medium) %>
+      <h1 class="pad"><%= tool.kind %></h1>
+      <p class="pad"><%= tool.name %></p>
+      <%= link_to "Reserve now!", new_user_reservation_path %>
+    </div>
+  </div>
+<% end %>

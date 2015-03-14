@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root 'static#welcome'
 
+  get '/browse/', to: 'tools#index'
+
   devise_for :users
 
   resources :users do
     resources :tools
     resources :messages
+    resources :reservations
   end
 
 

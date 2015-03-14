@@ -1,7 +1,7 @@
 class ToolsController < ApplicationController
 
   def index
-    @tools = Tool.all
+    @tools = Tool.all.where(:user_id => current_user.id)
   end
 
   def new
@@ -9,11 +9,12 @@ class ToolsController < ApplicationController
   end
 
   def show
-    @tool = Tool.find(params[:id])
+    @tool = Tool.all.where(:user_id => current_user.id)
   end
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user_id = current_user.id
     if @tool.save
       redirect_to user_tools_path(current_user.id)
 

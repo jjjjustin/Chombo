@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :messages
   has_many :tools
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

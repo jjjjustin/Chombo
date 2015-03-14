@@ -22,6 +22,7 @@
       <%= image_tag tool.image.url(:medium) %>
       <h1 class="pad"><%= tool.kind %></h1>
       <p class="pad"><%= tool.name %></p>
+      <%= link_to "View this tool", user_tool_path(current_user.id, tool.id) %>
     </div>
   </div>
 <% end %>

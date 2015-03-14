@@ -8,6 +8,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 <nav class="navbar transparent navbar">
@@ -28,7 +29,7 @@
           <li><%= link_to "Logged in as #{current_user.first_name.upcase}", user_path(current_user.id) %></li>
           <li><%= link_to "Log out", destroy_user_session_path(@user), method: :delete %></li>
           <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Browse</a></li>
+          <li><a href="/browse/">Browse</a></li>
          <% else %>
           <li class="divider"></li>
           <li><a href="/users/sign_up">Sign up</a></li>
