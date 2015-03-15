@@ -1,20 +1,10 @@
+<%= render "users/navbar" %>
 
-<nav class="navbar transparent navbar">
-<hr>
-  <div class="container-fluid">
-      <ul class="nav navbar-nav space">
-          <li><%= link_to "Dashboard", users_path(current_user.id) %></li>
-          <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
-          <li><%= link_to "Toolbox", user_tools_path(current_user.id) %></li>
-          <li><%= link_to "Reservations" %></li>
-          <li><%= link_to "Requests" %></li>
-          <li><%= link_to "Profile" %></li>
-          <li><%= link_to "Account" %></li>
-      </ul>
-    </div>
-  </div>
-  <hr>
-</nav>
+<%= form_tag(tools_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
+<%= submit_tag "Search" %>
+<% end %>
+
 
 <% @tools.each do |tool| %>
   <div class="col-md-3">

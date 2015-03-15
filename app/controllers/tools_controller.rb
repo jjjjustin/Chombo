@@ -1,15 +1,21 @@
 class ToolsController < ApplicationController
 
-  def index
-    @tools = Tool.all.where(:user_id => current_user.id)
+   def index
+    if params[:search]
+      @tools = Tool.search(params[:search])
+    else
+      @tools = Tool.all.where(:user_id => current_user.id)
+      @all_tools = Tool.all
+    end
   end
+
 
   def new
     @tool = Tool.new
   end
 
   def show
-    @tool = Tool.all.where(:user_id => current_user.id)
+    @tool = Tool.find(params[:id])
   end
 
   def create
@@ -23,6 +29,10 @@ class ToolsController < ApplicationController
       format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
+
+  def search
+  end
+
 
   private
 

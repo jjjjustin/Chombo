@@ -3,12 +3,18 @@ Rails.application.routes.draw do
 
   get '/browse/', to: 'tools#index'
 
+  get '/toolbox/', to: 'tools#user_tools'
+
+  get '/search/', to: 'tools#search'
   devise_for :users
 
+  resources :tools
+
+
   resources :users do
-    resources :tools
     resources :messages
     resources :reservations
+    resources :tools
   end
 
 

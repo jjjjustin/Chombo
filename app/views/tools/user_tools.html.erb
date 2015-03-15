@@ -1,0 +1,13 @@
+<% @tool.each do |tool| %>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <%= image_tag tool.image.url(:medium) %>
+      <h1 class="pad"><%= tool.kind %></h1>
+      <p class="pad"><%= tool.name %></p>
+      <%= link_to "Reserve now!", new_user_reservation_path %>
+    </div>
+  </div>
+<% end %>
+
+
+<h1>User tools</h1>
