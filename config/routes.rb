@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
-  root 'static#welcome'
+  get 'map/index'
 
-  get '/browse/', to: 'tools#index'
+  get 'map/new'
+
+  get 'map/create'
+
+  root 'static#welcome'
 
   get '/toolbox/', to: 'tools#user_tools'
 
   get '/search/', to: 'tools#search'
+
+  get '/map_search/', to: "map#index"
+
   devise_for :users
 
-  resources :tools
+  resources :tools do
+    resources :reservations
+
+  end
 
 
   resources :users do
     resources :messages
-    resources :reservations
     resources :tools
   end
 

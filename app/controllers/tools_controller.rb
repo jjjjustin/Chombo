@@ -1,12 +1,11 @@
 class ToolsController < ApplicationController
 
    def index
-    if params[:search]
-      @tools = Tool.search(params[:search])
-    else
-      @tools = Tool.all.where(:user_id => current_user.id)
-      @all_tools = Tool.all
-    end
+    @tools = Tool.all
+  end
+
+  def user_tools
+    @tools = Tool.all.where(:user_id => current_user.id)
   end
 
 
@@ -15,7 +14,7 @@ class ToolsController < ApplicationController
   end
 
   def show
-    @tool = Tool.find(params[:id])
+     @tool = Tool.find(params[:id])
   end
 
   def create
@@ -23,7 +22,6 @@ class ToolsController < ApplicationController
     @tool.user_id = current_user.id
     if @tool.save
       redirect_to user_tools_path(current_user.id)
-
     else
       format.html { render :new }
       format.json { render json: @user.errors, status: :unprocessable_entity }

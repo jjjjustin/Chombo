@@ -1,28 +1,12 @@
+<%= render "users/navbar" %>
 
-<nav class="navbar transparent navbar">
-<hr>
-  <div class="container-fluid">
-      <ul class="nav navbar-nav space">
-          <li><%= link_to "Dashboard", users_path(current_user.id) %></li>
-          <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
-          <li><%= link_to "Toolbox", user_tool_path(current_user.id) %></li>
-          <li><%= link_to "Reservations" %></li>
-          <li><%= link_to "Requests" %></li>
-          <li><%= link_to "Profile" %></li>
-          <li><%= link_to "Account" %></li>
-      </ul>
-    </div>
-  </div>
-  <hr>
-</nav>
-
-<% @tool.each do |tool| %>
   <div class="col-md-3">
     <div class="thumbnail">
-      <%= image_tag tool.image.url(:medium) %>
-      <h1 class="pad"><%= tool.kind %></h1>
-      <p class="pad"><%= tool.name %></p>
-      <%= link_to "Reserve now!", new_user_reservation_path %>
+      <%= image_tag @tool.image.url(:medium) %>
+      <h1 class="pad"><%= @tool.kind %></h1>
+      <p class="pad"><%= @tool.name %></p>
+      <%= link_to "Reserve now!", new_tool_reservation_path(@tool.id) %>
     </div>
   </div>
-<% end %>
+
+

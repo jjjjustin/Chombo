@@ -1,6 +1,6 @@
 class Tool < ActiveRecord::Base
   belongs_to :user
-
+  has_many :reservations
 
   has_attached_file :image, :styles => { :medium => "300x300>",
                                           :thumb => "100x100>" },
@@ -13,5 +13,6 @@ class Tool < ActiveRecord::Base
 
   def self.search(search)
     where('name LIKE ?', "%#{search}%")
+    where("kind ILIKE ?", "%#{search}%")
   end
 end
