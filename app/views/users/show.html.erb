@@ -26,7 +26,9 @@
   <div class="col-md-6">
     <div class="thumbnail">
       <h1 class="pad">Reservations</h1>
-      <p class="pad">Here's a list of upcoming reservations</p>
+        <div class="thumbnail">
+          <p class="pad">Reserved from <%= @reservations.start_day %> to <%= @reservations.end_day%></p>
+          <p class="pad">Lender <%= @reservations.lender_id  %></p>
     </div>
     <div class="thumbnail">
       <h1 class="pad">Alerts</h1>

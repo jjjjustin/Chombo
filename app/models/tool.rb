@@ -15,4 +15,7 @@ class Tool < ActiveRecord::Base
     where('name LIKE ?', "%#{search}%")
     where("kind ILIKE ?", "%#{search}%")
   end
+
+
+
 end

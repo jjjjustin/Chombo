@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @tools = @user.tools
+    @reservations = Reservation.find(params[:user_id])
   end
 
   def show
     @user = User.find(params[:id])
-
-
+    @reservations = Reservation.find(params[:id])
   end
 
   def new

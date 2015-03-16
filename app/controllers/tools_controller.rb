@@ -1,7 +1,12 @@
 class ToolsController < ApplicationController
 
-   def index
+  def index
     @tools = Tool.all
+    if params[:search]
+      @tools = Tool.search(params[:search])
+    else
+      @tools = Tool.all
+    end
   end
 
   def user_tools

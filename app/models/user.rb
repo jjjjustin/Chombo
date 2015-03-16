@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     where("kind ILIKE ?", "%#{search}%")
   end
 
+
 end
 
 

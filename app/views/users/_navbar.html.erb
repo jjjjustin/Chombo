@@ -6,17 +6,15 @@
           <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
           <li><%= link_to "Toolbox", toolbox_path %></li>
           <li><%= link_to "Reservations" %></li>
-          <li data-toggle="modal" data-target="#myModal">
-              <%= link_to "Add tools" %>
+          <li data-toggle="modal" data-target="#myModal">Add tool
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add new tool</h4>
                   </div>
                   <div class="modal-body">
-                    ...
+                    <% render partial: "tools/new" %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -25,7 +23,7 @@
                 </div>
               </div>
             </div>
-            </li>
+          </li>
           <li><%= link_to "Profile" %></li>
           <li><%= link_to "Account" %></li>
       </ul>
