@@ -6,7 +6,7 @@
       <%= image_tag tool.image.url(:medium) %>
       <h1 class="pad"><%= tool.kind %></h1>
       <p class="pad"><%= tool.name %></p>
-      <%= link_to "Reserve now!", new_tool_reservation_path(tool.id) %>
+      <%= link_to "Edit tool listing", edit_user_tool_path(current_user.id, tool.id) %>
     </div>
   </div>
 <% end %>

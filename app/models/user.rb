@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     where("kind ILIKE ?", "%#{search}%")
   end
 
+  def reservation_tool
+    @reservations.tool_id
+  end
+
 
 end
 

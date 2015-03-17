@@ -33,6 +33,19 @@ class ToolsController < ApplicationController
     end
   end
 
+  def update
+    @tool = Tool.find(params[:id])
+    respond_to do |format|
+      if @tool.update(tool_params)
+        format.html { redirect_to @tool, notice: 'Assignment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @assignment }
+      else
+        format.html { render :edit }
+        format.json { render json: @assignment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def search
   end
 
