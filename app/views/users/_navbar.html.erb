@@ -2,28 +2,11 @@
 <hr>
   <div class="container-fluid">
       <ul class="nav navbar-nav space">
-          <li><%= link_to "Dashboard" %></li>
+          <li><%= link_to "Dashboard", user_path(current_user.id) %></li>
           <li><%= link_to "Inbox", user_messages_path(current_user.id) %></li>
           <li><%= link_to "Toolbox", toolbox_path %></li>
-          <li><%= link_to "Reservations" %></li>
-          <li data-toggle="modal" data-target="#myModal">Add tool
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add new tool</h4>
-                  </div>
-                  <div class="modal-body">
-                    <% render partial: "tools/new" %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
+          <li><%= link_to "Reservations", tool_reservation_path(@reservation)%></li>
+          <li><%= link_to "Add tools", new_user_tool_path(current_user.id) %></li>
           <li><%= link_to "Profile" %></li>
           <li><%= link_to "Account" %></li>
       </ul>
