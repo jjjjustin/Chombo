@@ -12,14 +12,15 @@ class Tool < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def self.search(search)
-    where('name LIKE ?', "%#{search}%")
-    where("kind LIKE ?", "%#{search}%")
+    where("kind || name ILIKE ?", "%#{search}%")
   end
 
-  def self.distance_search(distance)
-    where('distance'  < "%#{distance}")
+  def self.how_far(tools, user)
+    tools.sort_by do |tool|
+      Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude],
+      [user.latitude,user.longitude]).round(2)
+    end
   end
-
 
 
 end

@@ -2,7 +2,7 @@
 
   <div class="col-md-3">
     <div class="thumbnail">
-      <%= image_tag @tool.image.url(:medium) %>
+      <%= image_tag @tool.image.url(:thumb) %>
       <h1 class="pad"><%= @tool.kind %></h1>
       <p class="pad"><%= @tool.name %></p>
       <%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %>

@@ -1,12 +1,14 @@
 class ToolsController < ApplicationController
 
   def index
+
     @tools = Tool.all
     if params[:search]
       @tools = Tool.search(params[:search])
     else
       @tools = Tool.all
     end
+    @tools = Tool.how_far(@tools, current_user)
   end
 
   def user_tools

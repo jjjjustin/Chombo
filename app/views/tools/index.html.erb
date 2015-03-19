@@ -1,24 +1,22 @@
 <%= render "users/navbar" %>
 
 <%= form_tag(tools_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
-<% end %>
-<%= form_tag(tools_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :distance_search, params[:distance], placeholder: "Set search radius" %>
 
+<%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
+<%= text_field_tag :how_far?, params[:how_far?] %>
 <%= submit_tag "Search" %>
 <% end %>
 
     <% @tools.each do |tool| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <%= image_tag tool.image.url(:medium) %>
-          <h1 class="pad"><%= tool.kind %></h1>
-          <p class="pad"><%= tool.name %></p>
-          <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
-          <%= link_to "View this tool", tool_path(tool.id) %>
-        </div>
-      </div>
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <%= image_tag tool.image.url(:medium) %>
+              <h3 class="pad"><%= tool.kind %></h3>
+              <p class="pad"><%= tool.name %></p>
+              <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
+              <%= link_to "View this tool", tool_path(tool.id) %>
+            </div>
+          </div>
     <% end %>
 
 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :tools
   has_many :reservations
+  has_many :messages
 
 
   devise :database_authenticatable, :registerable,
@@ -32,10 +33,11 @@ class User < ActiveRecord::Base
     [latitude, longitude].compact.join(', ')
   end
 
-  def distance
-    Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude],
-      [current_user.latitude,current_user.longitude])
+  def how_far?(user, tool)
+    Geocoder::Calculations.distance_between([tool.user.lat_and_long],
+      [current_user.lat_and_long])
   end
+
 
   geocoded_by :address
   after_validation :geocode
