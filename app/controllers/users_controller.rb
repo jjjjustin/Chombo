@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reservations = Reservation.find(params[:id])
+
   end
 
   def new
@@ -17,6 +17,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def profile_view
+    @user = User.find(params[:user_id])
   end
 
   def create

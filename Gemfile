@@ -18,6 +18,8 @@ gem 'textacular', '~> 3.0'
 
 gem 'underscore-rails'
 
+gem 'geocoder'
+
 gem 'gmaps4rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

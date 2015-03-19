@@ -5,6 +5,7 @@
       <%= image_tag @tool.image.url(:medium) %>
       <h1 class="pad"><%= @tool.kind %></h1>
       <p class="pad"><%= @tool.name %></p>
+      <%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %>
       <%= link_to "Reserve now!", new_tool_reservation_path(@tool.id) %>
     </div>
   </div>

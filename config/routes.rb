@@ -9,9 +9,15 @@ Rails.application.routes.draw do
 
   get '/toolbox/', to: 'tools#user_tools'
 
+  get '/user_reservations/', to: 'reservations#user_reservations'
+
   get '/search/', to: 'tools#search'
 
   get '/map_search/', to: "map#index"
+
+  get '/profile_view/:user_id', to: "users#profile_view", as: "profile_view"
+
+
 
   devise_for :users
 

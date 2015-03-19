@@ -13,7 +13,11 @@ class Tool < ActiveRecord::Base
 
   def self.search(search)
     where('name LIKE ?', "%#{search}%")
-    where("kind ILIKE ?", "%#{search}%")
+    where("kind LIKE ?", "%#{search}%")
+  end
+
+  def self.distance_search(distance)
+    where('distance'  < "%#{distance}")
   end
 
 

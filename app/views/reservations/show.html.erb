@@ -1,1 +1,39 @@
-<h1>USer reservations</h1>
+<h1>User reservations</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+      <div class="well well-lg">
+        <h2 style="text-align: center">Tools I'm borrowing</h2>
+      </div>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Tool Name</th>
+      <th>Borrower</th>
+      <th>Lender</th>
+      <th>Start date</th>
+      <th>End date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @reservation.each do |t| %>
+    <tr>
+      <td><%= t.tool.name %></td>
+      <td><%= t.borrower.first_name %></td>
+      <td><%= t.lender.first_name %></td>
+      <td><%= t.start_day %></td>
+      <td><%= t.end_day %></td>
+
+      <% end %>
+
+  </tbody>
+</table>
+
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>

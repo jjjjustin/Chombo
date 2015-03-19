@@ -24,6 +24,22 @@ class User < ActiveRecord::Base
     @reservations.tool_id
   end
 
+  def address
+    [street_address, state, zip].compact.join(', ')
+  end
+
+  def lat_and_long
+    [latitude, longitude].compact.join(', ')
+  end
+
+  def distance
+    Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude],
+      [current_user.latitude,current_user.longitude])
+  end
+
+  geocoded_by :address
+  after_validation :geocode
+
 
 end
 

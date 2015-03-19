@@ -1,4 +1,4 @@
-<%= render "navbar" %>
+<%= render "users/navbar" %>
 
 <div class="row">
   <div class="col-sm-6 col-md-4 profile" >
@@ -7,6 +7,7 @@
       <div class="caption">
         <h2 class="text-center"><%= current_user.first_name %>  <%= current_user.last_name %></h2>
         <h4 class="text-center"><%= current_user.state %></h4>
+        <h4 class="text-center"><%= current_user.address %></h4>
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-primary">View tools</button>
@@ -27,7 +28,7 @@
     <div class="thumbnail">
       <h1 class="pad">Reservations</h1>
         <div class="thumbnail">
-          <p class="pad">Reserved from <%= @reservations.start_day %> to <%= @reservations.end_day%></p>
+          <p class="pad">List of reservations here</p>
           <p class="pad">Lender <%=  %></p>
     </div>
     <div class="thumbnail">

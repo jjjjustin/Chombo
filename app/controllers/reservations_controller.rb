@@ -15,7 +15,10 @@ class ReservationsController < ApplicationController
     @reservation.tool_id = params[:tool_id]
     @reservation.lender_id = Tool.find(params[:tool_id]).user_id
     if @reservation.save
-      redirect_to root_path
+       @message = Message.new
+      redirect_to tool_reservation_path(1, 1)
+
+
     else
       format.html { render :new }
       format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -23,14 +26,15 @@ class ReservationsController < ApplicationController
   end
 
    def show
-    @reservation = Tool.find(params[:id])
+    @reservation = Reservation.all.where(:borrower_id => current_user.id)
     @tool = Tool.find(params[:id])
-  end
 
-  private
+  end
 
     def reservation_params
       params.require(:reservation).permit(:borrower_id, :lender_id, :tool_id, :start_day, :end_day)
     end
 
 end
+
+
