@@ -6,7 +6,7 @@ User.create(email: 'penny@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5555',
-            avatar: Faker::Avatar.image)
+            avatar: File.open(Rails.root + "app/assets/images/avatar_4.jpg"))
 
 User.create(email: 'izzy@gmail.com',
             password: 'password',
@@ -46,7 +46,7 @@ user = User.create(email: 'justin@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5559',
-            avatar: Faker::Avatar.image)
+            avatar: File.open(Rails.root + "app/assets/images/avatar_5.jpg"))
 
 
 tool = Tool.create(kind: 'Circular Saw',
