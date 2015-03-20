@@ -10,11 +10,11 @@
     <% @tools.each do |tool| %>
           <div class="col-md-3">
             <div class="thumbnail">
-              <%= image_tag tool.image.url(:medium) %>
+              <div class="image_sizer"><%= image_tag tool.image.url(:medium) %></div>
               <h3 class="pad"><%= tool.kind %></h3>
               <p class="pad"><%= tool.name %></p>
               <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
-              <%= link_to "View this tool", tool_path(tool.id) %>
+              <p class="pad"><%= link_to "View this tool", tool_path(tool.id) %></p>
             </div>
           </div>
     <% end %>

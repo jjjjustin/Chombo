@@ -24,7 +24,7 @@
 
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", redirect_to user_path(current_user.id) %>
           <%= render "devise/shared/links" %>
         </div>
       <% end %>
