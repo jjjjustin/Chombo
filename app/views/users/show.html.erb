@@ -1,67 +1,67 @@
 <%= render "users/navbar" %>
-
-<div class="row">
-  <div class="col-sm-6 col-md-4 profile" >
-    <div class="thumbnail">
-      <%= image_tag current_user.avatar.url %>
-      <div class="caption">
-        <h2 class="text-center"><%= current_user.first_name %>  <%= current_user.last_name %></h2>
-        <h4 class="text-center"><%= current_user.state %></h4>
-        <h4 class="text-center"><%= current_user.address %></h4>
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary">View tools</button>
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary">Add tools</button>
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
+<div class="background-image">
+  <div class="row bg-pixel">
+    <div class="col-sm-6 col-md-4 profile" >
+      <div class="thumbnail">
+        <%= image_tag current_user.avatar.url %>
+        <div class="caption">
+          <h2 class="text-center"><%= current_user.first_name %>  <%= current_user.last_name %></h2>
+          <h4 class="text-center"><%= current_user.state %></h4>
+          <h4 class="text-center"><%= current_user.address %></h4>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary">View tools</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary">Add tools</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
+            </div>
           </div>
         </div>
+
       </div>
-
     </div>
-  </div>
-  <div class="col-md"></div>
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <h1 class="pad">Reservations</h1>
-        <div class="thumbnail">
-          <p class="pad">List of reservations here</p>
-          <p class="pad">Lender <%=  %></p>
-    </div>
-    <div class="thumbnail">
-      <h1 class="pad">Alerts</h1>
-      <p class="pad">And here are some alerts!</p>
-    </div>
-    <div class="thumbnail ">
-      <h1 class="pad">Messages</h1>
-      <p class="pad">Messages from other users</p>
-    </div>
-    <div class="thumbnail">
-      <h1 class="pad">Requests</h1>
-        <table class="table table-striped table-hover ">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Borrower</th>
-              <th>Lender</th>
+    <div class="col-md"></div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <h1 class="pad">Reservations</h1>
+          <div class="thumbnail">
+            <p class="pad">List of reservations here</p>
+            <p class="pad">Lender <%=  %></p>
+      </div>
+      <div class="thumbnail">
+        <h1 class="pad">Alerts</h1>
+        <p class="pad">And here are some alerts!</p>
+      </div>
+      <div class="thumbnail ">
+        <h1 class="pad">Messages</h1>
+        <p class="pad">Messages from other users</p>
+      </div>
+      <div class="thumbnail">
+        <h1 class="pad">Requests</h1>
+          <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Borrower</th>
+                <th>Lender</th>
 
-            </tr>
-          </thead>
-          <tbody>
-          <% @messages.each do |t| %>
+              </tr>
+            </thead>
+            <tbody>
+            <% @messages.each do |t| %>
 
-              <p><%= t.borrower.first_name %> <% t.borrower.last_name %></p>
-              <p><%= t.body %></p>
+                <p><%= t.borrower.first_name %> <% t.borrower.last_name %></p>
+                <p><%= t.body %></p>
 
-              <% end %>
+                <% end %>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+      </div>
     </div>
   </div>
 </div>
-
 

@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def profile_view
     @user = User.find(params[:user_id])
+    @rating = Review.where(:user_id == current_user.id)
   end
 
   def create

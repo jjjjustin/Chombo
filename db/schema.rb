@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319051210) do
+ActiveRecord::Schema.define(version: 20150321014908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20150319051210) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "reviewer_id"
+    t.text     "review"
+    t.integer  "rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tools", force: :cascade do |t|
     t.string   "kind"
     t.string   "name"
@@ -84,6 +93,17 @@ ActiveRecord::Schema.define(version: 20150319051210) do
   end
 
   add_index "tools", ["user_id"], name: "index_tools_on_user_id", using: :btree
+
+  create_table "user_reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "reviewer_id"
+    t.text     "review"
+    t.integer  "rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_reviews", ["user_id"], name: "index_user_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -116,4 +136,5 @@ ActiveRecord::Schema.define(version: 20150319051210) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "tools", "users"
+  add_foreign_key "user_reviews", "users"
 end

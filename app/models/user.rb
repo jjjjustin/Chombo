@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :tools
   has_many :reservations
   has_many :messages
+  has_many :reviews
 
 
   devise :database_authenticatable, :registerable,

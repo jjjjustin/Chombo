@@ -15,11 +15,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'textacular', '~> 3.0'
-
+gem 'datetimepicker-rails', git: 'git://github.com/zpaulovics/datetimepicker-rails', tag: 'v1.0.0'
 gem 'underscore-rails'
-
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'geocoder'
-
+gem 'bootstrap-datepicker-rails'
 gem 'gmaps4rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

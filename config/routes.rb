@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'user_reviews/new'
+
+  get 'user_reviews/create'
+
+  get 'user_reviews/index'
+
   get 'map/index'
 
   get 'map/new'
@@ -30,6 +36,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :messages
     resources :tools
+    resources :reviews
   end
 
 
