@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'registration/new'
+
+  get 'registration/create'
+
+  get 'registration/update'
+
+  get 'registration/edit'
+
   get 'user_reviews/new'
 
   get 'user_reviews/create'
@@ -25,7 +33,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users
 
   resources :tools do
     resources :reservations
