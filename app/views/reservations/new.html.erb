@@ -1,19 +1,29 @@
 <%= render "users/navbar" %>
 
+<div class="col-md-1"></div>
+  <div class="col-md-3">
+      <div class="thumbnail">
+        <%= image_tag @tool.image.url(:medium) %>
+        <h1 class="pad"><%= @tool.kind %></h1>
+        <p class="pad"><%= @tool.name %></p>
+        <%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <h2>Reserve This Tool</h2>
 
-<div class="col-md-3"></div>
-  <div class="col-md-5">
-    <h2>Make a tool reservation</h2>
+        <%= simple_form_for([@tool, @reservation]) do |f| %>
+          <%= f.error_notification %>
+            <div class="form-group" input-type="string" >
+                <%= f.input :start_day, required: true %>
+                <%= f.input :end_day, required: true %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Reserve this tool" %>
 
-    <%= simple_form_for([@tool, @reservation]) do |f| %>
-      <%= f.error_notification %>
-        <div class="form-group" input-type="text" >
-            <%= f.input :start_day, :as => "string", input_html: { class: 'datepicker' }, required: true %>
-            <%= f.input :end_day, :as => "string", input_html: { class: 'datepicker' }, required: true %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Reserve this tool" %>
+            </div>
+          <% end %>
 
-        </div>
-      <% end %>
+
 

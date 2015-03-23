@@ -1,12 +1,11 @@
 class ToolsController < ApplicationController
 
   def index
-
-    @tools = Tool.all
+    @tools = Tool.all.where.not(:user_id => current_user.id)
     if params[:search]
-      @tools = Tool.search(params[:search])
+      @tools = Tool.search(params[:search]).all.where.not(:user_id => current_user.id)
     else
-      @tools = Tool.all
+      @tools = Tool.all.where.not(:user_id => current_user.id)
     end
     @tools = Tool.how_far(@tools, current_user)
   end

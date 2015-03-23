@@ -5,13 +5,15 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    @user = User.find(params[:user_id])
   end
 
   def create
     @message = Message.new(message_params)
-    @message.user_id = current_user.id
+    @message.receiver_id = current_user.id
+    @message.sender_id = params[:user_id]
     if @message.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       format.html { render :new }
       format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -26,7 +28,7 @@ class MessagesController < ApplicationController
   private
 
     def message_params
-      params.require(:message).permit(:body, :lender_id, :borrower_id)
+      params.require(:message).permit(:body, :sender_id, :receiver_id)
     end
 
 end

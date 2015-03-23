@@ -4,6 +4,7 @@
   <title>Chombo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/yeti/bootstrap.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
   <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
@@ -13,7 +14,7 @@
   <%= yield :javascripts %>
 
 </head>
-<body>
+<body class="body">
 <nav class="navbar transparent navbar ">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,8 +32,7 @@
         <% if user_signed_in? %>
           <li><%= link_to "Logged in as #{current_user.first_name.upcase}", user_path(current_user.id) %></li>
           <li><%= link_to "Log out", destroy_user_session_path(@user), method: :delete %></li>
-          <li class="active"><a href="#">Help <span class="sr-only">(current)</span></a></li>
-          <li><%= link_to "Browse", tools_path %></li>
+          <li><%= link_to "Search for tools", tools_path %></li>
          <% else %>
           <li class="divider"></li>
           <li><a href="/users/sign_up">Sign up</a></li>
@@ -44,9 +44,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/search/">Search by name</a></li>
-        <li><a href="/map_search/">Search by location</a></li>
-        <li><a href="#">Start listing now</a></li>
+        <li><a href="/map_search/">Help</a></li>
+        <li><a href="#">Contact</a></li>
 
 
 
@@ -62,5 +61,6 @@
       <%= yield %>
 
 </div>
+
 </body>
 </html>

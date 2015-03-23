@@ -1,13 +1,15 @@
 <%= render "users/navbar" %>
 
-<%= form_tag(tools_path, :method => "get", id: "search-form") do %>
 
-<%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
-<%= text_field_tag :how_far?, params[:how_far?] %>
-<%= submit_tag "Search" %>
-<% end %>
-
-    <% @tools.each do |tool| %>
+  <div class="col-md-4 pad2"></div>
+    <div class="input-group pad2">
+    <%= form_tag(tools_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
+      <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  <div class="col-md-1 pad2"></div>
+      <% @tools.each do |tool| %>
           <div class="col-md-3">
             <div class="thumbnail">
               <div class="image_sizer"><%= image_tag tool.image.url(:medium) %></div>

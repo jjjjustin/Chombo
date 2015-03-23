@@ -1,12 +1,14 @@
 <%= render "users/navbar" %>
-
+<hr>
+<h1 style="text-align: center">My Tools</h1>
+<hr>
 <% @tools.each do |tool| %>
   <div class="col-md-3">
     <div class="thumbnail">
       <%= image_tag tool.image.url(:medium) %>
       <h1 class="pad"><%= tool.kind %></h1>
       <p class="pad"><%= tool.name %></p>
-      <%= link_to "Edit tool listing", edit_user_tool_path(current_user.id, tool.id) %>
+      <p class="pad"><%= link_to "Edit tool listing", edit_user_tool_path(current_user.id, tool.id) %></p>
     </div>
   </div>
 <% end %>

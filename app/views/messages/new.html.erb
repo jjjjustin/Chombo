@@ -1,1 +1,18 @@
-<h1>New message form</h1>
+<%= render "users/navbar" %>
+
+
+<div class="col-md-3"></div>
+  <div class="col-md-5">
+  <h2>Write a message to <%= @user.first_name.upcase %></h2>
+  <%= simple_form_for ([@user, Message.new]) do |f| %>
+    <%= f.error_notification %>
+
+          <%= f.input :body, required: true %>
+
+
+      <div class="form-actions">
+        <%= f.button :submit, "Accept #{@user.first_name}'s request"%>
+      </div>
+  </div>
+</div>
+    <% end %>

@@ -10,13 +10,13 @@
           <h4 class="text-center"><%= current_user.address %></h4>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary">View tools</button>
+              <button type="button" class="btn  "><%= link_to "View tools", toolbox_path(current_user.id)%></button>
             </div>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary">Add tools</button>
+              <button type="button" class="btn"><%=link_to "Add tools", new_user_tool_path(current_user.id)%></button>
             </div>
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-primary"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
+              <button type="button" class="btn"><%= link_to "Edit profile", edit_user_path(current_user) %></button>
             </div>
           </div>
         </div>
@@ -26,40 +26,36 @@
     <div class="col-md"></div>
     <div class="col-md-6">
       <div class="thumbnail">
-        <h1 class="pad">Reservations</h1>
-          <div class="thumbnail">
-            <p class="pad">List of reservations here</p>
-            <p class="pad">Lender <%=  %></p>
-      </div>
-      <div class="thumbnail">
-        <h1 class="pad">Alerts</h1>
-        <p class="pad">And here are some alerts!</p>
-      </div>
-      <div class="thumbnail ">
-        <h1 class="pad">Messages</h1>
-        <p class="pad">Messages from other users</p>
-      </div>
-      <div class="thumbnail">
-        <h1 class="pad">Requests</h1>
-          <table class="table table-striped table-hover ">
-            <thead>
+        <h1 class="pad text-center">Upcoming Reservations</h1>
+          <% @borrower_res.each do |t| %>
+            <div class="thumbnail text-center">
               <tr>
-                <th></th>
-                <th>Borrower</th>
-                <th>Lender</th>
-
+                <td><i>  Borrowing</i>  <%= link_to t.tool.name, tool_path(t.tool.id) %></td>
+                <td><i> from </i> <%= link_to t.lender.first_name, profile_view_path(t.lender_id) %></td>
+                <br>
+                <td><i> Starting on </i> <%= t.start_day.to_date.to_formatted_s(:long_ordinal) %></td>
+                <td><i> and ending on </i> <%= t.end_day.to_date.to_formatted_s(:long_ordinal) %></td>
               </tr>
-            </thead>
-            <tbody>
-            <% @messages.each do |t| %>
-
-                <p><%= t.borrower.first_name %> <% t.borrower.last_name %></p>
-                <p><%= t.body %></p>
-
-                <% end %>
-
-            </tbody>
-          </table>
+            </div>
+          <% end %>
+        <h1 class="pad text-center">New Messages</h1>
+          <% @messages.each do |t| %>
+            <div class="thumbnail text-center">
+              <tr>
+                <td><i> Message from </i> <%= link_to t.sender.first_name, profile_view_path(t.sender.id) %></td>
+                <br>
+                <td><%= t.body %></td>
+              </tr>
+            </div>
+          <% end %>
+        <h1 class="pad text-center">New Reservation Requests</h1>
+          <% @reservation_messages.each do |t| %>
+            <div class="thumbnail text-center">
+              <p><%= t.body %></p>
+              <%= link_to "Accept request", new_user_message_path(t.sender.id) %>  |
+              <%= link_to "View #{t.sender.first_name}'s profile", profile_view_path(t.sender.id) %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
