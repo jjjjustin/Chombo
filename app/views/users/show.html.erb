@@ -1,4 +1,7 @@
 <%= render "users/navbar" %>
+<hr>
+<h1 style="text-align: center"> My Profile</h1>
+<hr>
 <div class="background-image">
   <div class="row bg-pixel">
     <div class="col-sm-6 col-md-4 profile" >
@@ -42,6 +45,7 @@
           <% @messages.each do |t| %>
             <div class="thumbnail text-center">
               <tr>
+
                 <td><i> Message from </i> <%= link_to t.receiver.first_name, profile_view_path(t.sender.id) %></td>
                 <br>
                 <td><%= t.body %></td>
