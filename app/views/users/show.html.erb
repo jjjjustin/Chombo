@@ -42,7 +42,7 @@
           <% @messages.each do |t| %>
             <div class="thumbnail text-center">
               <tr>
-                <td><i> Message from </i> <%= link_to t.sender.first_name, profile_view_path(t.sender.id) %></td>
+                <td><i> Message from </i> <%= link_to t.receiver.first_name, profile_view_path(t.sender.id) %></td>
                 <br>
                 <td><%= t.body %></td>
               </tr>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reservation_messages = Message.all.where(:receiver_id => current_user.id).where.not(:reservation_id => nil)
-    @messages = Message.all.where(:receiver_id => current_user.id).where(:reservation_id => nil)
+    @messages = Message.all.where(:sender_id => current_user.id).where(:reservation_id => nil)
     @borrower_res = Reservation.where(:borrower_id => current_user.id)
     @lender_res = Reservation.where(:lender_id => current_user.id)
   end
