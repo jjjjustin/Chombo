@@ -7,7 +7,7 @@ html {
   font-family: 'Lato', sans-serif;
 }
 
-.jumbotron {
+.landing {
 
     margin-bottom: 0px;
     background-image: url(http://i.huffpost.com/gen/2442876/thumbs/o-DIY-HOME-IMPROVEMENT-facebook.jpg);
@@ -73,16 +73,21 @@ body {
 }
 
 .pad2 {
-  padding-bottom: 20px;
+  padding-bottom: 120px;
 }
 
 .footer {
-  border-top: black 1px;
+  border: 1px black;
   background-color: white;
+
 }
 
 .tall {
   min-height: 60px;
+}
+
+.clear {
+  background-color: white;
 }
 
 
