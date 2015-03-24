@@ -15,8 +15,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.reviewer_id = current_user.id
-    @review.user_id = params[:id]
+    @review.user_id = params[:user_id]
     if @review.save
+      redirect_to user_path(current_user.id)
 
     else
       format.html { render :new }

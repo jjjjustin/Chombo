@@ -1,14 +1,15 @@
 <%= render "users/navbar" %>
 <hr>
-<h1 style="text-align: center">My Dashboard</h1>
+<h1 style="text-align: center">Selected Tool</h1>
 <hr>
   <div class="col-md-3">
-    <div class="thumbnail">
+    <div class="thumbnail ">
       <%= image_tag @tool.image.url(:thumb) %>
       <h1 class="pad"><%= @tool.kind %></h1>
       <p class="pad"><%= @tool.name %></p>
-      <%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %>
-      <%= link_to "Reserve now!", new_tool_reservation_path(@tool.id) %>
+      <p class="pad"><%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %></p>
+
+      <p class="pad"><%= link_to "Reserve now!", new_tool_reservation_path(@tool.id) %></p>
     </div>
   </div>
 

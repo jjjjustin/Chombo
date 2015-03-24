@@ -39,6 +39,18 @@ class User < ActiveRecord::Base
       [current_user.lat_and_long])
   end
 
+  def rating_total
+    @rating
+  end
+
+  def rating_amount
+    @review.rating.count
+  end
+
+  def rating_average
+    rating_total / rating_amount
+  end
+
 
   geocoded_by :address
   after_validation :geocode

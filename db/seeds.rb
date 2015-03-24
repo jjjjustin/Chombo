@@ -18,7 +18,7 @@ User.create(email: 'izzy@gmail.com',
             phone_number: '555-5556',
             avatar: File.open(Rails.root + "app/assets/images/avatar_3.jpg"))
 
-user = User.create(email: 'pepper@gmail.com',
+User.create(email: 'pepper@gmail.com',
             password: 'password',
             first_name: 'Pepper',
             last_name: 'Berube',
@@ -28,7 +28,7 @@ user = User.create(email: 'pepper@gmail.com',
             phone_number: '555-5557',
             avatar: File.open(Rails.root + "app/assets/images/avatar_1.jpg"))
 
-user = User.create(email: 'aleza@gmail.com',
+User.create(email: 'aleza@gmail.com',
             password: 'password',
             first_name: 'Aleza',
             last_name: 'Berube',
@@ -38,7 +38,7 @@ user = User.create(email: 'aleza@gmail.com',
             phone_number: '555-5558',
             avatar: File.open(Rails.root + "app/assets/images/avatar_2.jpeg"))
 
-user = User.create(email: 'justin@gmail.com',
+User.create(email: 'justin@gmail.com',
             password: 'password',
             first_name: 'Justin',
             last_name: 'Sitarz',

@@ -13,11 +13,11 @@ Rails.application.routes.draw do
 
   get 'user_reviews/index'
 
-  get 'map/index'
+  get '/help/', to: 'static#help'
 
-  get 'map/new'
+  get '/contact/', to: 'static#contact'
 
-  get 'map/create'
+  get '/info/', to: 'static#info'
 
   root 'static#welcome'
 
