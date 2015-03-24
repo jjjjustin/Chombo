@@ -17,7 +17,7 @@
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
             <button type="button" class="btn">
-              <%= link_to "View user's tools", user_tools_path(@user.id) %></button>
+              <%= link_to "View user's tools", profile_tools_path(@user.id) %></button>
           </div>
           <div class="btn-group" role="group">
             <button type="button" class="btn">
@@ -38,7 +38,7 @@
           <h1 class="pad text-center"><%= @user.first_name.capitalize %>'s Reviews</h1>
             <% if @review.count > 0 %>
               <% @review.each do |t| %>
-                <div class="thumbnail text-center">
+                <div class="thumbnail text-center tall">
                     <tr>
                       <td><i class="col-md-2"><%= link_to t.reviewer.first_name %> says...</i></td>
                       <td><%= t.review %></td>

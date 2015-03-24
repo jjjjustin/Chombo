@@ -37,8 +37,8 @@ html {
 }
 
 .space > li{
-  padding-left:110px;
-  padding-right:110px;
+  padding-left:80px;
+  padding-right:80px;
 
 }
 
@@ -68,7 +68,7 @@ h1, h2, h3, h4, p {
  }
 
 body {
-
+  padding-bottom: 120px;
 
 }
 
@@ -76,5 +76,13 @@ body {
   padding-bottom: 20px;
 }
 
+.footer {
+  border-top: black 1px;
+  background-color: white;
+}
+
+.tall {
+  min-height: 60px;
+}
 
 

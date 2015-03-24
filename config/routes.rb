@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'user_reviews/index'
 
+  get '/profile_tools/:id(.:format)', to: 'tools#profile_view_tools', as: "/profile_tools/"
+
   get '/help/', to: 'static#help'
 
   get '/contact/', to: 'static#contact'

@@ -26,11 +26,14 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     @tool.user_id = current_user.id
-    if @tool.save
-      redirect_to user_tools_path(current_user.id)
-    else
-      format.html { render :new }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @tool.save
+        format.html { redirect_to toolbox_path(current_user.id), notice: "You've successfully added a new tool." }
+        format.json { render :show, status: :ok, location: @assignment }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -47,7 +50,8 @@ class ToolsController < ApplicationController
     end
   end
 
-  def search
+  def profile_view_tools
+    @tools = Tool.all.where(:user_id => params[:id])
   end
 
 

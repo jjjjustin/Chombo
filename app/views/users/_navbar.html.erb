@@ -1,6 +1,7 @@
 <nav class="navbar box">
   <div class="container-fluid">
       <ul class="nav navbar-nav space center">
+          <li><%= link_to "Search for tools", tools_path %></li>
           <li><%= link_to "Dashboard", user_path(current_user.id) %></li>
           <li><%= link_to "Toolbox", toolbox_path %></li>
           <li><%= link_to "Add tools", new_user_tool_path(current_user.id) %></li>

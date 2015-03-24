@@ -60,7 +60,27 @@
 
       <%= yield %>
 
-</div>
+<nav class="navbar footer navbar-fixed-bottom">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path(@user), method: :delete %></li>
+            <li><%= link_to "Search for tools", tools_path %></li>
+            <li><%= link_to "Chombo ©2015", root_path %></li>
+          <% else %>
+            <li class="divider"></li>
+            <li><a href="/users/sign_up">Sign up</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/help/">Help</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+  </div>
+</nav>
 
 </body>
 </html>

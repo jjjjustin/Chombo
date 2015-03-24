@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review.reviewer_id = current_user.id
     @review.user_id = params[:user_id]
     if @review.save
-      redirect_to user_path(current_user.id)
+      redirect_to profile_view_path(@review.user_id)
 
     else
       format.html { render :new }

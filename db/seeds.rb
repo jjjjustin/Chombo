@@ -119,5 +119,18 @@ tool = Tool.create(kind: 'Welder',
                    description: 'Awesome all purpose 220 mig welder',
                    image: File.open(Rails.root + "app/assets/images/welder_2.jpg"))
 
+Review.create(user_id: 1,
+              reviewer_id: 2,
+              review: 'Great experience!',
+              rating: 4)
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+
+
+
 
 
