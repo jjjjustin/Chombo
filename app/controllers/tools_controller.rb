@@ -16,6 +16,7 @@ class ToolsController < ApplicationController
 
 
   def new
+    @title
     @tool = Tool.new
   end
 
@@ -28,7 +29,7 @@ class ToolsController < ApplicationController
     @tool.user_id = current_user.id
     respond_to do |format|
       if @tool.save
-        format.html { redirect_to toolbox_path(current_user.id), notice: "You've successfully added a new tool." }
+        format.html { redirect_to profile_tools_path(current_user.id), notice: "You've successfully added a new tool." }
         format.json { render :show, status: :ok, location: @assignment }
       else
         format.html { render :new }
@@ -41,7 +42,7 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
     respond_to do |format|
       if @tool.update(tool_params)
-        format.html { redirect_to @tool, notice: 'Assignment was successfully updated.' }
+        format.html { redirect_to @tool, notice: 'Tool was successfully updated.' }
         format.json { render :show, status: :ok, location: @assignment }
       else
         format.html { render :edit }

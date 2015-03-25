@@ -8,7 +8,7 @@
   <div class="col-sm-6 col-md-4 profile" >
     <div class="thumbnail">
       <%= image_tag @user.avatar.url %>
-      <div class="text-center">Average user rating | <% @user.first_name %></div>
+
 
       <div class="caption">
         <h2 class="text-center"><%= @user.first_name %>  <%= @user.last_name %></h2>
@@ -38,15 +38,15 @@
           <h1 class="pad text-center"><%= @user.first_name.capitalize %>'s Reviews</h1>
             <% if @review.count > 0 %>
               <% @review.each do |t| %>
-                <div class="thumbnail text-center tall">
+                <div class="grey text-center tall">
                     <tr>
-                      <td><i class="col-md-2"><%= link_to t.reviewer.first_name %> says...</i></td>
+                      <td><i class="col-md-1"><%= link_to t.reviewer.first_name %> says...</i></td>
                       <td><%= t.review %></td>
                     </tr>
                 </div>
               <% end %>
             <% else %>
-              <div class="thumbnail text-center"><i><%= @user.first_name.capitalize %> has no reviews at this time</i></div>
+              <div class="grey text-center"><i><%= @user.first_name.capitalize %> has no reviews at this time</i></div>
             <% end %>
 
 

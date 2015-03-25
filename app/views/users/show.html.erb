@@ -1,6 +1,6 @@
 <%= render "users/navbar" %>
 <hr>
-<h1 style="text-align: center"> My profile</h1>
+<h1 style="text-align: center"> My Profile</h1>
 <hr>
 <div class="background-image">
   <div class="row bg-pixel">
@@ -32,7 +32,7 @@
         <h1 class="pad text-center">Upcoming Reservations</h1>
           <% if @borrower_res.count > 0 %>
             <% @borrower_res.each do |t| %>
-              <div class="thumbnail text-center">
+              <div class="grey text-center">
                 <tr>
                   <td><i>  Borrowing</i>  <%= link_to t.tool.name, tool_path(t.tool.id) %></td>
                   <td><i> from </i> <%= link_to t.lender.first_name, profile_view_path(t.lender_id) %></td>
@@ -43,13 +43,13 @@
               </div>
             <% end %>
           <% else %>
-            <div class="thumbnail text-center"><i>You have no reservations at this time</i></div>
+            <div class="grey text-center"><i>You have no reservations at this time</i></div>
           <% end %>
 
         <h1 class="pad text-center">New Messages</h1>
           <% if @messages.count > 0 %>
             <% @messages.each do |t| %>
-              <div class="thumbnail text-center">
+              <div class="grey text-center">
                 <tr>
                   <td><i> Message from </i> <%= link_to t.receiver.first_name, profile_view_path(t.sender.id) %></td>
                   <br>
@@ -58,20 +58,20 @@
               </div>
             <% end %>
           <% else %>
-              <div class="thumbnail text-center"><i>You have no messages at this time</i></div>
+              <div class="grey text-center"><i>You have no messages at this time</i></div>
           <% end %>
 
         <h1 class="pad text-center">New Reservation Requests</h1>
           <% if @reservation_messages.count > 0 %>
             <% @reservation_messages.each do |t| %>
-              <div class="thumbnail text-center">
+              <div class="grey text-center">
                 <p><%= t.body %></p>
                 <%= link_to "Accept request", new_user_message_path(t.sender.id) %>  |
                 <%= link_to "View #{t.sender.first_name}'s profile", profile_view_path(t.sender.id) %>
               </div>
             <% end %>
           <% else %>
-            <div class="thumbnail text-center"><i>You have no reservation requests at this time</i></div>
+            <div class="grey text-center"><i>You have no reservation requests at this time</i></div>
           <% end %>
       </div>
     </div>

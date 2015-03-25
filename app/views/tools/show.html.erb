@@ -2,15 +2,24 @@
 <hr>
 <h1 style="text-align: center">Selected Tool</h1>
 <hr>
-  <div class="col-md-3">
-    <div class="thumbnail ">
-      <%= image_tag @tool.image.url(:thumb) %>
-      <h1 class="pad"><%= @tool.kind %></h1>
-      <p class="pad"><%= @tool.name %></p>
+<div class="col-md-1"></div>
+  <div class="row">
+    <div class="col-md-3">
+      <div >
+        <%= image_tag @tool.image.url(:medium) %>
+      </div>
+<div class="col-md-1"></div>
+
+</div>
+
+
+
+
+<div class="row bg-pixel">
+    <div class="col-sm-6 col-md-4 profile" >
+      <h1 class="pad"><%= @tool.kind %></h1> <p class="pad"> <%= @tool.name %></p>
+
+      <p class="pad"><i> ~ <%= @tool.description %> ~ </i></p>
       <p class="pad"><%= link_to "View the owner's profile", profile_view_path(@tool.user_id) %></p>
-
       <p class="pad"><%= link_to "Reserve now!", new_tool_reservation_path(@tool.id) %></p>
-    </div>
-  </div>
-
 

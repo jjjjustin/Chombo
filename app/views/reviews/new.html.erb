@@ -9,10 +9,13 @@
 
           <%= f.input :review, required: true %>
 
+          <%= f.label "Rating" %>
           <%= f.select :rating, [1, 2, 3, 4, 5]  %>
 
       <div class="form-actions">
-        <%= f.button :submit, "Review #{@user.first_name}"%>
+        <div>
+          <%= f.button :submit, "Review #{@user.first_name}"%>
+        </div>
       </div>
   </div>
 </div>

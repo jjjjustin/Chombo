@@ -119,6 +119,29 @@ tool = Tool.create(kind: 'Welder',
                    description: 'Awesome all purpose 220 mig welder',
                    image: File.open(Rails.root + "app/assets/images/welder_2.jpg"))
 
+tool = Tool.create(kind: 'Orbital Sander',
+                   name: 'Ridgid 6" ROS',
+                   user_id: 5,
+                   condition: 'Good',
+                   description: 'Solid little palm sander - comes with several sanding pads',
+                   image: File.open(Rails.root + "app/assets/images/orbital_sander_1.jpg"))
+
+tool = Tool.create(kind: 'Orbital Sander',
+                   name: 'Bosch 5" ROS T44',
+                   user_id: 3,
+                   condition: 'Great',
+                   description: 'Almost brand new variable speed Random Orbital Sander, great condition',
+                   image: File.open(Rails.root + "app/assets/images/orbital_sander_2.jpg"))
+
+tool = Tool.create(kind: 'Finishing Sander',
+                   name: 'Ryobi 4" VSS-65',
+                   user_id: 1,
+                   condition: 'Fair',
+                   description: 'Decent sander for small/medium projects',
+                   image: File.open(Rails.root + "app/assets/images/finishing_sander_1.png"))
+
+
+
 Review.create(user_id: 1,
               reviewer_id: 2,
               review: 'Great experience!',
@@ -128,6 +151,12 @@ Message.create(sender_id: 1,
                receiver_id: 2,
                reservation_id: 1,
                body: "Sounds like a plan!")
+
+Reservation.create(start_day: "2015-03-25",
+                   end_day: "2015-03-25",
+                   lender_id: 1,
+                   borrower_id: 2,
+                   tool_id: 5)
 
 
 

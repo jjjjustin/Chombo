@@ -11,6 +11,7 @@
       <% end %>
     </div>
   <div class="col-md-1 pad2"></div>
+    <div class="row">
       <% @tools.each do |tool| %>
           <div class="col-md-3">
             <div class="thumbnail">
@@ -19,8 +20,12 @@
               <p class="pad"><%= tool.name %></p>
               <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
               <p class="pad"><%= link_to "View this tool", tool_path(tool.id) %></p>
+
             </div>
           </div>
-    <% end %>
+
+      <% end %>
+    </div>
+
 
 
