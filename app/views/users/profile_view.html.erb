@@ -43,7 +43,9 @@
                       <td><i class="col-md-1"><%= link_to t.reviewer.first_name %> says...</i></td>
                       <td><%= t.review %></td>
                     </tr>
+
                 </div>
+                </br>
               <% end %>
             <% else %>
               <div class="grey text-center"><i><%= @user.first_name.capitalize %> has no reviews at this time</i></div>

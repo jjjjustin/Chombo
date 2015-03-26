@@ -1,31 +1,35 @@
 <%= render "users/navbar" %>
 
-  <hr>
-  <h1 style="text-align: center">All available tools</h1>
-  <hr>
-  <div class="col-md-4 pad2"></div>
-    <div class="input-group pad2">
-    <%= form_tag(tools_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
-      <%= submit_tag "Search" %>
-      <% end %>
-    </div>
-  <div class="col-md-1 pad2"></div>
+<hr>
+<h1 style="text-align: center">All available tools</h1>
+<hr>
+<div class="col-md-4 pad2"></div>
+  <div class="input-group pad2">
+  <%= form_tag(tools_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for tools" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+
+    <% @tools.each_slice(3) do |t| %>
     <div class="row">
-      <% @tools.each do |tool| %>
-          <div class="col-md-3">
-            <div class="thumbnail">
-              <div class="image_sizer"><%= image_tag tool.image.url(:medium) %></div>
-              <h3 class="pad"><%= tool.kind %></h3>
-              <p class="pad"><%= tool.name %></p>
-              <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
-              <p class="pad"><%= link_to "View this tool", tool_path(tool.id) %></p>
+      <div class="col-md-1 pad2"></div>
+      <% t.each do |tool| %>
 
-            </div>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <div class="image_sizer"><%= image_tag tool.image.url(:medium) %></div>
+            <h3 class="pad"><%= tool.kind %></h3>
+            <p class="pad"><%= tool.name %></p>
+            <p class="pad">This tool is <%= Geocoder::Calculations.distance_between([tool.user.latitude,tool.user.longitude], [current_user.latitude,current_user.longitude]).round(2) %> miles away from you</p>
+            <p class="pad"><%= link_to "View this tool", tool_path(tool.id) %></p>
           </div>
-
+        </div>
       <% end %>
     </div>
+    <% end %>
+  </div>
 
 
 
