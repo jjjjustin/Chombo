@@ -7,7 +7,7 @@ class ToolsController < ApplicationController
     else
       @tools = Tool.all.where.not(:user_id => current_user.id)
     end
-#    @tools = Tool.how_far(@tools, current_user)
+    @tools = Tool.how_far(@tools, current_user)
   end
 
   def user_tools

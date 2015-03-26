@@ -1,3 +1,5 @@
+# => USERS
+
 User.create(email: 'penny@gmail.com',
             password: 'password',
             first_name: 'Penny',
@@ -6,7 +8,7 @@ User.create(email: 'penny@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5555',
-            avatar: File.open(Rails.root + "app/assets/images/avatar_4.jpg"))
+            avatar: File.open(Rails.root + "app/assets/images/penny.jpg"))
 
 User.create(email: 'izzy@gmail.com',
             password: 'password',
@@ -16,7 +18,7 @@ User.create(email: 'izzy@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5556',
-            avatar: File.open(Rails.root + "app/assets/images/avatar_3.jpg"))
+            avatar: File.open(Rails.root + "app/assets/images/izzy.jpg"))
 
 User.create(email: 'pepper@gmail.com',
             password: 'password',
@@ -26,7 +28,7 @@ User.create(email: 'pepper@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5557',
-            avatar: File.open(Rails.root + "app/assets/images/avatar_1.jpg"))
+            avatar: File.open(Rails.root + "app/assets/images/pepper.jpg"))
 
 User.create(email: 'aleza@gmail.com',
             password: 'password',
@@ -36,7 +38,7 @@ User.create(email: 'aleza@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5558',
-            avatar: File.open(Rails.root + "app/assets/images/avatar_2.jpeg"))
+            avatar: File.open(Rails.root + "app/assets/images/aleza.jpg"))
 
 User.create(email: 'justin@gmail.com',
             password: 'password',
@@ -46,8 +48,20 @@ User.create(email: 'justin@gmail.com',
             state: 'Texas',
             zip: '78702',
             phone_number: '555-5559',
-            avatar: File.open(Rails.root + "app/assets/images/avatar_5.jpg"))
+            avatar: File.open(Rails.root + "app/assets/images/justin.jpg"))
 
+User.create(email: 'jon@gmail.com',
+            password: 'password',
+            first_name: 'Jon',
+            last_name: 'Merz',
+            street_address:'1103 W College St.',
+            state: 'IL',
+            zip: '62901',
+            phone_number: '555-5510',
+            avatar: File.open(Rails.root + "app/assets/images/jon.jpg"))
+
+
+# => TOOLS
 
 tool = Tool.create(kind: 'Circular Saw',
                    name: 'Dewalt 54TF6',
@@ -121,36 +135,121 @@ tool = Tool.create(kind: 'Welder',
 
 tool = Tool.create(kind: 'Orbital Sander',
                    name: 'Ridgid 6" ROS',
-                   user_id: 5,
+                   user_id: 6,
                    condition: 'Good',
                    description: 'Solid little palm sander - comes with several sanding pads',
                    image: File.open(Rails.root + "app/assets/images/orbital_sander_1.jpg"))
 
 tool = Tool.create(kind: 'Orbital Sander',
                    name: 'Bosch 5" ROS T44',
-                   user_id: 3,
+                   user_id: 1,
                    condition: 'Great',
                    description: 'Almost brand new variable speed Random Orbital Sander, great condition',
                    image: File.open(Rails.root + "app/assets/images/orbital_sander_2.jpg"))
 
 tool = Tool.create(kind: 'Finishing Sander',
                    name: 'Ryobi 4" VSS-65',
-                   user_id: 1,
+                   user_id: 6,
                    condition: 'Fair',
                    description: 'Decent sander for small/medium projects',
                    image: File.open(Rails.root + "app/assets/images/finishing_sander_1.png"))
 
-
+# => REVIEWS
 
 Review.create(user_id: 1,
               reviewer_id: 2,
-              review: 'Great experience!',
+              review: 'Great experience! A++++',
+              rating: 5)
+
+Review.create(user_id: 1,
+              reviewer_id: 5,
+              review: "Awesome - great tools, and it's nice to finally meet some of my neighbors",
               rating: 4)
+
+Review.create(user_id: 2,
+              reviewer_id: 1,
+              review: "Super cool and super chill - I think we'll be sharing tools again in the future!",
+              rating: 5)
+
+Review.create(user_id: 2,
+              reviewer_id: 3,
+              review: "Pretty great experience - would do it again",
+              rating: 4)
+
+Review.create(user_id: 3,
+              reviewer_id: 1,
+              review: "Pepper was really nice - I'd work with her again",
+              rating: 4)
+
+Review.create(user_id: 3,
+              reviewer_id: 2,
+              review: 'Excellent',
+              rating: 5)
+
+Review.create(user_id: 4,
+              reviewer_id: 2,
+              review: 'A+ - would try this again, it worked great',
+              rating: 5)
+
+Review.create(user_id: 4,
+              reviewer_id: 5,
+              review: 'Needed a drill in a pinch and she came through for me - awesome!',
+              rating: 4)
+
+Review.create(user_id: 5,
+              reviewer_id: 6,
+              review: 'Super cool - why has no one thought of this before?!',
+              rating: 4)
+
+Review.create(user_id: 5,
+              reviewer_id: 2,
+              review: 'Perfect - just what I needed :)',
+              rating: 5)
+
+Review.create(user_id: 6,
+              reviewer_id: 5,
+              review: 'Great experience!',
+              rating: 5)
+
+Review.create(user_id: 6,
+              reviewer_id: 4,
+              review: 'Thanks - really great!',
+              rating: 4)
+
+
+# => MESSAGES
 
 Message.create(sender_id: 1,
                receiver_id: 2,
                reservation_id: 1,
                body: "Sounds like a plan!")
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+Message.create(sender_id: 1,
+               receiver_id: 2,
+               reservation_id: 1,
+               body: "Sounds like a plan!")
+
+# => RESERVATIONS
 
 Reservation.create(start_day: "2015-03-25",
                    end_day: "2015-03-25",
