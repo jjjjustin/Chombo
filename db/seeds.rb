@@ -224,30 +224,7 @@ Message.create(sender_id: 1,
                reservation_id: 1,
                body: "Sounds like a plan!")
 
-Message.create(sender_id: 1,
-               receiver_id: 2,
-               reservation_id: 1,
-               body: "Sounds like a plan!")
 
-Message.create(sender_id: 1,
-               receiver_id: 2,
-               reservation_id: 1,
-               body: "Sounds like a plan!")
-
-Message.create(sender_id: 1,
-               receiver_id: 2,
-               reservation_id: 1,
-               body: "Sounds like a plan!")
-
-Message.create(sender_id: 1,
-               receiver_id: 2,
-               reservation_id: 1,
-               body: "Sounds like a plan!")
-
-Message.create(sender_id: 1,
-               receiver_id: 2,
-               reservation_id: 1,
-               body: "Sounds like a plan!")
 
 # => RESERVATIONS
 
