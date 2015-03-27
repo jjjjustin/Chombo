@@ -19,15 +19,14 @@
           </tr>
         </thead>
         <tbody>
-        <% @borrower.each do |t| %>
-          <tr>
-            <td><%= link_to t.tool.name, tool_path(t.tool.id) %></td>
-            <td><%= link_to t.lender.first_name, profile_view_path(t.lender_id) %></td>
-            <td><%= t.start_day.to_date.to_formatted_s(:long_ordinal) %></td>
-            <td><%= t.end_day.to_date.to_formatted_s(:long_ordinal) %></td>
-
-            <% end %>
-
+          <% @borrower.each do |t| %>
+            <tr>
+              <td><%= link_to t.tool.name, tool_path(t.tool.id) %></td>
+              <td><%= link_to t.lender.first_name, profile_view_path(t.lender_id) %></td>
+              <td><%= t.start_day.to_date.to_formatted_s(:long_ordinal) %></td>
+              <td><%= t.end_day.to_date.to_formatted_s(:long_ordinal) %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -63,3 +62,4 @@
       </div>
     </div>
   </div>
+</div>

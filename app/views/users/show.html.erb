@@ -5,7 +5,7 @@
 <div class="background-image">
   <div class="row bg-pixel">
     <div class="col-sm-6 col-md-4 profile" >
-      <div class="thumbnail">
+      <div class="thumbnail thumbnail-big">
         <%= image_tag current_user.avatar.url %>
         <div class="caption">
           <h2 class="text-center"><%= current_user.first_name %>  <%= current_user.last_name %></h2>
@@ -51,7 +51,7 @@
             <% @messages.each do |t| %>
               <div class="grey text-center">
                 <tr>
-                  <td><i> Message from </i> <%= link_to t.receiver.first_name, profile_view_path(t.sender.id) %></td>
+                  <td><i> Message from </i> <%= link_to t.receiver.first_name, profile_view_path(t.receiver.id) %></td>
                   <br>
                   <td><%= t.body %></td>
                 </tr>
