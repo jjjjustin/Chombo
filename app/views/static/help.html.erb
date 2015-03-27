@@ -3,17 +3,27 @@
     <h1>Help</h1>
 
       <p class="sub">A quick how-to primer for first time users</p>
-      <h3><i>Step 1</i></h3>
-        <p>Create an account | <button type="button" class="btn btn-lg"><%= link_to "Sign up",
-          new_user_registration_path %></button></p>
-      <h3><i>Step 2</i></h3>
-        <p>Add a few of your tools |  <button type="button" class="btn btn-lg"><%= link_to "Add tools",
-          new_user_tool_path(current_user.id) %></button></p>
-      <h3><i>Step 3</i></h3>
-        <p>Search for what you need | <button type="button" class="btn btn-lg"><%= link_to "Search tools",
-          new_user_tool_path(current_user.id) %></button></p>
-      <h3><i>Step 4</i></h3>
-        <p>And make your reservation!</p>
+      <% if signed_in? %>
+        <h3><i>Step 1</i></h3>
+          <p>Create an account | <button type="button" class="btn btn-lg"><%= link_to "Sign up",
+            new_user_registration_path %></button></p>
+        <h3><i>Step 2</i></h3>
+          <p>Add a few of your tools |  <button type="button" class="btn btn-lg"><%= link_to "Add tools",
+            new_user_tool_path(current_user.id) %></button></p>
+        <h3><i>Step 3</i></h3>
+          <p>Search for what you need | <button type="button" class="btn btn-lg"><%= link_to "Search tools",
+            tools_path(current_user.id) %></button></p>
+        <h3><i>Step 4</i></h3>
+          <p>And make your reservation!</p>
+      <% else %>
+        <h3><i>Step 1</i></h3><p>Create an account | <button type="button" class="btn btn-lg"><%= link_to "Sign up",
+            new_user_registration_path %></button></p>
+        <h3><i>Step 2</i></h3>
+          <p>Add a few of your tools</p>
+        <h3><i>Step 3</i></h3>
+          <p>Search for what you need </p>
+      <% end %>
+
   </div>
 </div>
 
